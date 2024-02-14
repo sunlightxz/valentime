@@ -24,10 +24,18 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    background-image: url('../images/background.jpeg');
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.heart {
+  animation: 2s float infinite alternate;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(12px) rotate(0deg);
+}
+100% {
+    transform: translateY(-12px) rotate(0deg);
+}
 }

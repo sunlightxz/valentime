@@ -6,18 +6,22 @@ const Hero = () => {
   const [generatedText, setGeneratedText] = useState('');
   const[sendTo ,setNewsendTo]= useState('');
   const[sender ,setNewsender]= useState('');
-  
+  const[keyword ,setKeyword]= useState('');
+
   const handleFormSubmit = ({ sendTo, sender, keyword,submitted }) => {
+    setKeyword(keyword);
     setNewsendTo(sendTo);
     setNewsender(sender);
     const newText = `Hello ${sendTo}, this message is from ${sender}. Keyword: ${keyword}`;
     setGeneratedText(newText);
   };
   return (
-    <div className="flex justify-center items-center flex-col font-Epilogue">
+    <div className="flex justify-center items-center flex-col font-Epilogue ">
       <div className="Logo">
         <a href="" className="cursor-pointer w-24 h-auto absolute top-4 z-30">
-          Logo
+        <span className="font-bold italic ml-6">
+          <img src="Sunlightxz.png"  alt="" />
+        </span>
         </a>
       </div>
       <div className="pt-24 flex justify-center items-center flex-col">
@@ -75,8 +79,19 @@ const Hero = () => {
       </div>
 
     <Form onSubmit={handleFormSubmit}/>
-    <Result generatedText={generatedText} sendTo={sendTo} sender={sender} />
-      
+    <Result generatedText={generatedText} sendTo={sendTo} sender={sender} keyword={keyword}/>
+    
+    <footer className="absolute bottom-6 left-0 right-0 block px-14">
+        <div className="flex justify-between items-center">
+            <span className="font-light font-Epilogue text-sm">@copyright 2024</span>
+            <span>
+              <a  href="https://github.com/sunlightxz/valentime">
+                <img src="Github.png" alt="" width={38}/>
+              </a>
+            </span>
+        </div>
+    </footer>
+
     </div>
   );
 };
